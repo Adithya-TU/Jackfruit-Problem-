@@ -46,24 +46,24 @@ def send_message():
     if not user_msg:
         return
 
-    chatbox.insert(tk.END, "You: " + user_msg + "\n", "user")
+    chatbox.insert(tk.END, "You: " + user_msg + "\n", "user") #adds the message to the bottom of the chatbox, default is top
     entry.delete(0, tk.END) #clears the entry field from start to ending
 
     bot_reply = chatbot_response(user_msg) 
-    chatbox.insert(tk.END, "Bot: " + bot_reply + "\n\n", "bot")
+    chatbox.insert(tk.END, "Bot: " + bot_reply + "\n\n", "bot") #will apply the config for " " for the entire line
     chatbox.see(tk.END) #scrolls the chatbox viewport so the end of the text can b seen 
 
 # Build GUI
 window = tk.Tk()
 window.title("FAQ Chatbot - Advanced Version")
 window.geometry("530x500")
-window.resizable(False, False)
+window.resizable(False, False) 
 
 # Chat Display
 chatbox = scrolledtext.ScrolledText(window, wrap=tk.WORD, font=("Arial", 11)) #textbox with scrollbacr is created 
 chatbox.pack(pady=10, padx=10, fill=tk.BOTH, expand=True) #places the widget in the window in the next available space
-chatbox.tag_config("user", foreground="blue")
-chatbox.tag_config("bot", foreground="green")
+chatbox.tag_config("user", foreground="blue") #makes the text appears in specific color
+chatbox.tag_config("bot", foreground="green") 
 
 # Input Field
 entry = tk.Entry(window, font=("Arial", 12))
